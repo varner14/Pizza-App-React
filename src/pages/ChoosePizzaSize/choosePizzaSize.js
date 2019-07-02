@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth'
 import styled from 'styled-components'
 import pizzaSizes from '../../mocks/pizzaSizes'
+
+import { CHOOSE_PIZZA_FLAVOURS } from '../../routes'
+
 import {
   Card,
   CardActionArea as MaterialCardActionArea,
@@ -27,7 +30,12 @@ const ChoosePizzaSize = () => {
         {pizzaSizes.map(pizza => (
           <Grid item key={pizza.id} xs>
             <Card>
-              <CardActionArea to='/sabores'>
+              <CardActionArea
+                to={{
+                  pathname: CHOOSE_PIZZA_FLAVOURS,
+                  state: pizza
+                }}
+              >
                 <Pizza>
                   <PizzaText>{pizza.size}cm</PizzaText>
                 </Pizza>
