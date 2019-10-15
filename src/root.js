@@ -1,5 +1,6 @@
 import React from 'react'
 import { hot } from 'react-hot-loader'
+import { ThemeProvider } from 'styled-components'
 import { BrowserRouter, Route } from 'react-router-dom'
 import {
   CssBaseline,
@@ -7,8 +8,7 @@ import {
   MuiThemeProvider
 } from '@material-ui/core'
 import AuthProvider from './contexts/auth'
-import App from './app'
-
+import App from './App'
 const theme = createMuiTheme({
   typography: {
     useNextVariants: true
@@ -25,17 +25,19 @@ const theme = createMuiTheme({
     // error: will use the default color
   }
 })
+console.log(theme)
 
 function Root () {
   return (
     <MuiThemeProvider theme={theme}>
-      <AuthProvider>
-        <CssBaseline />
-
-        <BrowserRouter>
-          <Route component={App} />
-        </BrowserRouter>
-      </AuthProvider>
+      <ThemeProvider theme={theme} >
+        <AuthProvider>
+          <CssBaseline />
+          <BrowserRouter>
+            <Route component={App} />
+          </BrowserRouter>
+        </AuthProvider>
+      </ThemeProvider>
     </MuiThemeProvider>
   )
 }
