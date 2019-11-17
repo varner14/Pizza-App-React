@@ -56,7 +56,10 @@ const ChoosePizzaFlavours = ({ location }) => {
                   {pizza.name}
                 </Typography>
                 <Typography variant='h5'>
-                  {pizza.value[id]}
+                  {pizza.value[id].toLocaleString('pt-BR', {
+                    style: 'currency',
+                    currency: 'BRL'
+                  })}
                 </Typography>
               </Label>
             </Card>

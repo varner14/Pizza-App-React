@@ -50,17 +50,7 @@ const RightContainer = styled.div`
   width: 50%;
   height: 100vh;
   float: right;
-  background: linear-gradient(
-    to bottom,
-    rgba(248, 80, 50, 1) 0%,
-    rgba(176, 28, 9, 1) 0%,
-    rgba(176, 28, 9, 1) 23%,
-    rgba(189, 94, 82, 1) 47%,
-    rgba(189, 94, 82, 1) 59%,
-    rgba(176, 28, 9, 1) 82%,
-    rgba(176, 28, 9, 1) 89%,
-    rgba(176, 28, 9, 1) 100%
-  );
+  background: ${({ theme }) => theme.palette.primary.main};
 `
 
 const Logo = styled(MainLogo)`
@@ -78,10 +68,10 @@ const GitHubButton = styled(Button).attrs({
   fullWidth: true
 })`
   && {
-    font-size: 25px;
+    font-size: ${({ theme }) => theme.typography.h5.fontSize}
     background: linear-gradient(220deg, rgba(255,255,255,1) 0%, rgba(224,190,102,1) 0%, rgba(255,214,0,0.9780287114845938) 100%);
     max-width: 480px;
-    padding: 15px;
+    padding: ${({ theme }) => theme.spacing(2)}px;
     color: #fff;
     text-transform: none;
   }
