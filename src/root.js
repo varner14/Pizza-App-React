@@ -1,6 +1,6 @@
 import React from 'react'
 import { hot } from 'react-hot-loader'
-import { ThemeProvider } from 'styled-components'
+import { ThemeProvider, createGlobalStyle } from 'styled-components'
 import { BrowserRouter, Route } from 'react-router-dom'
 import {
   CssBaseline,
@@ -33,6 +33,7 @@ function Root () {
       <ThemeProvider theme={theme} >
         <AuthProvider>
           <CssBaseline />
+          <GlobalStyle />
           <BrowserRouter>
             <Route component={App} />
           </BrowserRouter>
@@ -41,5 +42,13 @@ function Root () {
     </MuiThemeProvider>
   )
 }
+
+const GlobalStyle = createGlobalStyle`
+ #root {
+   display: flex;
+   flex-direction: column;
+   min-height: 100vh;
+ }
+`
 
 export default hot(module)(Root)

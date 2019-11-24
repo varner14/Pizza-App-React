@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import styled from 'styled-components'
 
 import { AuthContext } from '../../contexts/auth'
-import { H3, H4, PizzasGrid, Divider, CardLink } from '../../ui'
+import { H3, H4, PizzasGrid, Divider, CardLink, Content } from '../../ui'
 import pizzaSizes from '../../mocks/pizzaSizes'
 import { singleOrPlural } from '../../utils'
 
@@ -18,7 +18,7 @@ const ChoosePizzaSize = () => {
   const { userInfo } = useContext(AuthContext)
 
   return (
-    <>
+    <Content>
       <Grid container direction='column' alignItems='center'>
         <H3>
           O que vai ser hoje, {userInfo.user.firstName}?
@@ -53,7 +53,7 @@ const ChoosePizzaSize = () => {
           </Grid>
         ))}
       </PizzasGrid>
-    </>
+    </Content>
   )
 }
 
@@ -88,6 +88,7 @@ const Pizza = styled.div`
 const PizzaText = styled(Typography).attrs({
   variant: 'h5'
 })`
+ &&{
   align-items: center;
   background: ${({ theme }) => theme.palette.common.white};
   border-radius: 50%;
@@ -97,6 +98,7 @@ const PizzaText = styled(Typography).attrs({
   position: relative;
   width: 80px;
   z-index: 1;
+ }
 `
 
 export default ChoosePizzaSize
